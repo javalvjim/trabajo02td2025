@@ -1,0 +1,719 @@
+---
+title: "Trabajo 02. Decisión Multicriterio"
+author: "Javier Álvarez Jiménez"
+date: "2025-11-10"
+output:
+  pdf_document: default
+---
+
+# TEMA: "Elección de la mejor sede para unos Juegos Olímpicos"
+
+El Comité Olímpico Internacional (COI) se enfrenta a la tarea de seleccionar la mejor ciudad para albergar los próximos Juegos Olímpicos. La elección de la sede es un proceso complejo que implica evaluar múltiples factores estratégicos, logísticos y sociales. Una decisión de esta magnitud debe realizarse bajo criterios objetivos y cuantificables, asegurando el equilibrio entre la viabilidad económica, la seguridad, la calidad de las infraestructuras y la capacidad organizativa de cada ciudad candidata.
+
+Para este estudio se han considerado **cinco posibles sedes**:
+
+  - Madrid
+  - París
+  - Tokio
+  - Los Ángeles
+  - Roma 
+
+El objetivo del análisis es determinar **cuál de estas ciudades presenta las condiciones más favorables para la organización de los Juegos Olímpicos**, teniendo en cuenta los siguientes criterios:
+
+1. **Infraestructura**: calidad y capacidad de las instalaciones necesarias para albergar los Juegos, incluyendo tanto las instalaciones deportivas como la capacidad hotelera. 
+
+- *Subcriterios:*  
+
+    + **Instalaciones deportivas**: adecuación, modernidad y cumplimiento de los estándares olímpicos.
+    + **Capacidad hotelera**: disponibilidad y calidad del alojamiento para deportistas, prensa y visitantes.
+
+2. **Coste**: gasto total estimado para la organización del evento, considerando inversiones en construcción, operación y logística.
+
+3. **Seguridad**: grado de protección y estabilidad social del país anfitrión.  
+
+- *Subcriterios:*  
+    
+    + **Estabilidad política**: nivel de gobernabilidad y ausencia de conflictos.
+    + **Criminalidad**: índices de delincuencia y medidas de prevención existentes.
+
+4. **Transporte**: calidad del sistema de transporte urbano e internacional.
+
+En base a la información de la que dispone el Comité Olímpico Internacional, se tienen las matrices de comparación por pares:
+
+\newpage
+
+## 1. Matriz de Comparación entre Criterios Principales
+
+|                 | Infraestructura | Coste | Seguridad | Transporte |
+|:---------------:|:---------------:|:-----:|:---------:|:----------:|
+| Infraestructura | 1               | 3     | 2         | 2          |
+| Coste           | 1/3             | 1     | 1/2       | 1/2        |
+| Seguridad       | 1/2             | 2     | 1         | 1          |
+| Transporte      | 1/2             | 2     | 1         | 1          |
+
+---
+
+## 2. Matrices de Comparación entre Subcriterios
+
+### Criterio: Infraestructura
+|                          | Instalaciones deportivas | Capacidad hotelera |
+|:------------------------:|:------------------------:|:------------------:|
+| Instalaciones deportivas | 1                        | 3                  |
+| Capacidad hotelera       | 1/3                      | 1                  |
+
+
+### Criterio: Seguridad
+|                      | Estabilidad política | Criminalidad |
+|:--------------------:|:--------------------:|:------------:|
+| Estabilidad política | 1                    | 2            |
+| Criminalidad         | 1/2                  | 1            |
+
+---
+
+## 3. Matrices de Comparación de Alternativas (Ciudades)
+
+### Criterio: Infraestructura
+
+#### Subcriterio: Instalaciones deportivas
+|             | Madrid | París | Tokio | Los Ángeles | Roma |
+|:-----------:|:------:|:-----:|:-----:|:-----------:|:----:|
+| Madrid      | 1      | 1/2   | 1/3   | 1/4         | 2    |
+| París       | 2      | 1     | 1/2   | 1/3         | 3    |
+| Tokio       | 3      | 2     | 1     | 1/2         | 4    |
+| Los Ángeles | 4      | 3     | 2     | 1           | 5    |
+| Roma        | 1/2    | 1/3   | 1/4   | 1/5         | 1    |
+
+#### Subcriterio: Capacidad hotelera
+|             | Madrid | París | Tokio | Los Ángeles | Roma |
+|:-----------:|:------:|:-----:|:-----:|:-----------:|:----:|
+| Madrid      | 1      | 1/2   | 1/3   | 1/2         | 2    |
+| París       | 2      | 1     | 1/2   | 1           | 3    |
+| Tokio       | 3      | 2     | 1     | 2           | 4    |
+| Los Ángeles | 2      | 1     | 1/2   | 1           | 3    |
+| Roma        | 1/2    | 1/3   | 1/4   | 1/3         | 1    |
+
+### Criterio: Seguridad
+
+#### Subcriterio: Estabilidad política
+|             | Madrid | París | Tokio | Los Ángeles | Roma |
+|:-----------:|:------:|:-----:|:-----:|:-----------:|:----:|
+| Madrid      | 1      | 1     | 1/2   | 1/2         | 2    |
+| París       | 1      | 1     | 1/2   | 1/2         | 2    |
+| Tokio       | 2      | 2     | 1     | 1/2         | 3    |
+| Los Ángeles | 2      | 2     | 2     | 1           | 3    |
+| Roma        | 1/2    | 1/2   | 1/3   | 1/3         | 1    |
+
+#### Subcriterio: Criminalidad
+|             | Madrid | París | Tokio | Los Ángeles | Roma |
+|:-----------:|:------:|:-----:|:-----:|:-----------:|:----:|
+| Madrid      | 1      | 2     | 1/3   | 1/2         | 2    |
+| París       | 1/2    | 1     | 1/4   | 1/3         | 1    |
+| Tokio       | 3      | 4     | 1     | 2           | 5    |
+| Los Ángeles | 2      | 3     | 1/2   | 1           | 3    |
+| Roma        | 1/2    | 1     | 1/5   | 1/3         | 1    |
+
+### Criterio: Coste
+*Nota: Menor coste es preferible.*
+
+|             | Madrid | París | Tokio | Los Ángeles | Roma |
+|:-----------:|:------:|:-----:|:-----:|:-----------:|:----:|
+| Madrid      | 1      | 2     | 3     | 2           | 1    |
+| París       | 1/2    | 1     | 2     | 1           | 1/2  |
+| Tokio       | 1/3    | 1/2   | 1     | 1/2         | 1/3  |
+| Los Ángeles | 1/2    | 1     | 2     | 1           | 1/2  |
+| Roma        | 1      | 2     | 3     | 2           | 1    |
+
+### Criterio: Transporte
+|             | Madrid | París | Tokio | Los Ángeles | Roma |
+|:-----------:|:------:|:-----:|:-----:|:-----------:|:----:|
+| Madrid      | 1      | 1/2   | 1/3   | 1/2         | 2    |
+| París       | 2      | 1     | 1/2   | 1           | 3    |
+| Tokio       | 3      | 2     | 1     | 2           | 4    |
+| Los Ángeles | 2      | 1     | 1/2   | 1           | 3    |
+| Roma        | 1/2    | 1/3   | 1/4   | 1/3         | 1    |
+
+\newpage
+
+# Solución:
+
+En primer lugar, cargamos las funciones que vamos a utilizar:
+
+```{r}
+source("teoriadecision_funciones_multicriterio.R")
+source("teoriadecision_funciones_multicriterio_diagram.R")
+source("teoriadecision_funciones_multicriterio_utiles.R")
+```
+
+# 1. Método AHP
+
+## 1.1. Resolución con ayuda de las funciones R definidas en clase
+
+```{r}
+# Definimos nombres
+nombres_criterios=c("Infraestructura", "Coste", "Seguridad", "Transporte")
+nombres_alternativas=c("Madrid", "París", "Tokio", "Los Ángeles", "Roma")
+```
+
+## Nivel Criterios-Subcriterios
+
+### Criterios Principales
+
+```{r}
+XmatrizC1 = multicriterio.crea.matrizvaloraciones_mej(
+  c(3, 2, 2, 1/2, 1/2, 1),4, nombres_criterios)
+resC1 = multicriterio.metodoAHP.variante3.basico(XmatrizC1)
+p_criterios=resC1$valoraciones.ahp
+p_criterios
+```
+
+### Subcriterios de Infraestructura 
+
+```{r}
+XmatrizC2 = multicriterio.crea.matrizvaloraciones_mej(
+  c(3), 2, c("Inst. deportivas", "Cap. hotelera"))
+resC2 = multicriterio.metodoAHP.variante3.basico(XmatrizC2)
+p_subcrit_infraestructura=resC2$valoraciones.ahp
+p_subcrit_infraestructura
+```
+
+### Subcriterios de Seguridad
+
+```{r}
+XmatrizC3 = multicriterio.crea.matrizvaloraciones_mej(
+  c(2), 2, c("Est. política", "Criminalidad"))
+resC3 = multicriterio.metodoAHP.variante3.basico(XmatrizC3)
+p_subcrit_seguridad=resC3$valoraciones.ahp
+p_subcrit_seguridad
+```
+
+## Nivel final (Alternativas)
+
+### Subcriterio: Instalaciones deportivas
+
+```{r}
+Xmatriz1 = multicriterio.crea.matrizvaloraciones_mej(
+  c(1/2, 1/3, 1/4, 2, 1/2, 1/3, 3, 1/2, 4, 5), 5, nombres_alternativas)
+res1 = multicriterio.metodoAHP.variante3.basico(Xmatriz1)
+res1$valoraciones.ahp
+```
+
+### Subcriterio: Capacidad hotelera
+
+```{r}
+Xmatriz2 = multicriterio.crea.matrizvaloraciones_mej(
+  c(1/2, 1/3, 1/2, 2, 1/2, 1, 3, 2, 4, 3), 5, nombres_alternativas)
+res2 = multicriterio.metodoAHP.variante3.basico(Xmatriz2)
+res2$valoraciones.ahp
+```
+
+### Criterio: Coste
+
+```{r}
+Xmatriz3 = multicriterio.crea.matrizvaloraciones_mej(
+  c(2, 3, 2, 1, 2, 1, 1/2, 1/2, 1/3, 1/2), 5, nombres_alternativas)
+res3 = multicriterio.metodoAHP.variante3.basico(Xmatriz3)
+res3$valoraciones.ahp
+```
+
+
+### Subcriterio: Estabilidad política
+
+```{r}
+Xmatriz4 = multicriterio.crea.matrizvaloraciones_mej(
+  c(1, 1/2, 1/2, 2, 1/2, 1/2, 2, 1/2, 3, 3), 5, nombres_alternativas)
+res4 = multicriterio.metodoAHP.variante3.basico(Xmatriz4)
+res4$valoraciones.ahp
+```
+
+### Subcriterio: Criminalidad
+
+```{r}
+Xmatriz5 = multicriterio.crea.matrizvaloraciones_mej(
+  c(2, 1/3, 1/2, 2, 1/4, 1/3, 1, 2, 5, 3), 5, nombres_alternativas)
+res5 = multicriterio.metodoAHP.variante3.basico(Xmatriz5)
+res5$valoraciones.ahp
+```
+
+### Criterio: Transporte
+
+```{r}
+Xmatriz6 = multicriterio.crea.matrizvaloraciones_mej(
+  c(1/2, 1/3, 1/2, 2, 1/2, 1, 3, 2, 4, 3), 5, nombres_alternativas)
+res6 = multicriterio.metodoAHP.variante3.basico(Xmatriz6)
+res6$valoraciones.ahp
+```
+
+
+## Calcular el peso global de cada rama de la jerarquía
+
+```{r}
+c11_inst_dep = p_criterios["Infraestructura"] * p_subcrit_infraestructura["Inst. deportivas"]
+c12_cap_hotelera = p_criterios["Infraestructura"] * p_subcrit_infraestructura["Cap. hotelera"]
+c2_coste = p_criterios["Coste"]
+c31_estab_polic = p_criterios["Seguridad"] * p_subcrit_seguridad["Est. política"]
+c32_criminalidad = p_criterios["Seguridad"] * p_subcrit_seguridad["Criminalidad"]
+c4_transporte = p_criterios["Transporte"]
+
+crisub = c(c11_inst_dep, c12_cap_hotelera, c2_coste, c31_estab_polic, c32_criminalidad, c4_transporte)
+names(crisub) <- c("Inst_Dep", "Cap_Hotelera", "Coste", "Estab_Polic", "Criminalidad", "Transporte")
+```
+
+## Matriz de pesos de las alternativas
+
+```{r}
+matper = rbind(
+  res1$valoraciones.ahp,
+  res2$valoraciones.ahp,
+  res3$valoraciones.ahp,
+  res4$valoraciones.ahp,
+  res5$valoraciones.ahp,
+  res6$valoraciones.ahp)
+rownames(matper) = names(crisub)
+colnames(matper) = nombres_alternativas
+```
+
+## Cálculo pesos globales
+
+```{r}
+p_globales = crisub %*% matper
+colnames(p_globales) = nombres_alternativas
+```
+
+##  Tabla con los resultados
+
+```{r}
+kable(p_globales, digits = 4)
+```
+
+## Tabla con los resultados ordenados
+
+```{r}
+ranking = sort(as.numeric(p_globales), decreasing = TRUE)
+ciudades = colnames(p_globales)
+
+ranking_df = data.frame(
+  Ciudad = ciudades[order(as.numeric(p_globales), decreasing = TRUE)],
+  Peso_Global = ranking)
+
+kable(ranking_df, digits = 4, col.names = c("Ciudad", "Peso Global"), booktabs = TRUE)
+
+```
+
+## 1.2. Resolución con la librería ahp
+
+### Cargar el modelo
+
+```{r}
+library(ahp)
+library(formattable)
+ahp_jjoo = ahp::Load("juegosolimpicos.ahp")
+```
+
+### Calcular las prioridades
+
+```{r}
+Calculate(ahp_jjoo)
+print(ahp_jjoo, priority = function(x) x$parent$priority["Total", x$name])
+```
+
+### Visualizar la jerarquía
+
+```{r}
+invisible(Visualize(ahp_jjoo))
+```
+
+### Tabla mejorada con los pesos locales
+
+```{r}
+library(formattable)
+library(htmltools) 
+library(webshot)
+aa_locales = AnalyzeTable(ahp_jjoo, variable = "priority", sort = "orig")
+export_formattable(aa_locales, file = "tabla_locales.png")
+```
+
+### Tabla mejorada con los pesos globales Mostramos los pesos globales )
+
+```{r}
+aa_globales = AnalyzeTable(ahp_jjoo)
+export_formattable(aa_globales, file = "tabla_globales.png")
+```
+
+## 1.3. Conclusiones método AHP
+
+### Análisis de Pesos (Criterios y Subcriterios)
+
+Primero, analizamos la importancia que el comité ha asignado a cada factor:
+
+- Criterios Principales: El criterio más importante es, con diferencia, la Infraestructura (42.3%). Le siguen, con igual importancia, la Seguridad y el Transporte (ambos con 22.7%). El Coste (12.3%)  es el factor al que menos peso se le da.
+- Subcriterios de Infraestructura: Dentro de la Infraestructura, se valora mucho más las Instalaciones deportivas (75%) que la Capacidad hotelera (25%).
+- Subcriterios de Seguridad: Para la Seguridad, se considera el doble de importante la Estabilidad política (66.7%) que la Criminalidad (33.3%).
+
+### Ranking Final (AHP)
+
+Al agregar todas las valoraciones y pesos, el método AHP proporciona un ranking global:
+- Los Ángeles: 0.2937 (29.4%)
+- Tokio: 0.2903 (29.0%)
+- París: 0.1722 (17.2%)
+- Madrid: 0.1433 (14.3%)
+- Roma: 0.1005 (10.0%)
+
+### Interpretación
+
+Según el método AHP, la decisión está muy reñida entre las dos primeras candidatas. Los Ángeles (29.4%) supera por un margen muy estrecho a Tokio (29.0%). Hay una caída notable de más de 10 puntos porcentuales hasta la tercera clasificada, París.
+
+Los resultados de la librería ahp (que se muestran en la página 9 ) confirman este resultado, con Los Ángeles (29.5%) y Tokio (29.1%) en las primeras posiciones. Es importante destacar que la inconsistencia del modelo es muy baja (0.4% ).
+
+\newpage
+
+# 2. Método ELECTRE
+
+La matriz de decisión de la que dispone el Comité Olímpico Internacional es la siguiente:
+
+|             | Infraestructura | Coste | Seguridad | Transporte |
+|:-----------:|:---------------:|:-----:|:---------:|:----------:|
+| Madrid      | 80              | -3000 | 70        | 75         |
+| París       | 85              | -2800 | 65        | 85         |
+| Tokio       | 95              | -2500 | 90        | 95         |
+| Los Ángeles | 90              | -2800 | 80        | 85         |
+| Roma        | 75              | -3000 | 60        | 60         |
+
+```{r}
+matriz_decision = multicriterio.crea.matrizdecision(
+  c(80, -3000, 70, 75,
+    85, -2800, 65, 85,
+    95, -2500, 90, 95,
+    90, -2800, 80, 85,
+    75, -3000, 60, 70),
+  numalternativas = 5,
+  numcriterios = 4,
+  v.nombresalt = c("Madrid", "París", "Tokio", "Los Ángeles", "Roma"),
+  v.nombrescri = c("Infraestructura", "Coste", "Seguridad", "Transporte"))
+```
+
+## Pesos de los Criterios (W) 
+
+```{r}
+# Usamos los pesos obtenidos en el método AHP
+W_electre = p_criterios 
+W_electre
+```
+
+
+## Nivel de Concordancia (alpha) y umbrales de Discordancia
+
+```{r}
+alpha_electre = 0.7 
+d_electre = c(Inf, 500, Inf, Inf)
+```
+
+## Ejecutar el método ELECTRE I
+
+### Iteración 1
+
+```{r}
+sol_electre1 = multicriterio.metodoELECTRE_I(
+  tabdecs.X = matriz_decision,
+  pesos.criterios = W_electre,
+  nivel.concordancia.minimo.alpha = alpha_electre,
+  no.se.compensan = d_electre,
+  que.alternativas = TRUE)
+sol_electre1
+```
+
+Nucleo_aprox (alternativas no dominadas):
+
+```{r}
+sol_electre1$nucleo_aprox
+```
+
+Grafo de Superación (Iteración 1):
+
+```{r}
+library(qgraph)
+qgraph::qgraph(sol_electre1$relacion.dominante)
+```
+
+```{r}
+# Generar imágenes ELECTRE
+
+r_electre = func_ELECTRE_Completo(sol_electre1)
+
+# Guardar la tabla de Índices
+# r_electre$MIndices$KE %>% kableExtra::save_kable("electre_indices.png")
+
+# Guardar la tabla de Concordancia
+# r_electre$TConcordancia$KE %>% kableExtra::save_kable("electre_concordancia.png")
+ 
+# Guardar la tabla de Discordancia
+# r_electre$TDiscordancia$KE %>% kableExtra::save_kable("electre_discordancia.png")
+
+# Guardar la tabla de Superación
+# r_electre$TSuperacion$KE %>% kableExtra::save_kable("electre_superacion.png")
+```
+
+### Tabla de Índices (I+, I=, I-)
+
+```{r}
+kable(r_electre$MIndices$MIndices, 
+      digits = 2, 
+      caption = "ELECTRE: Tabla de Índices (I+, I=, I-)")
+```
+
+### Tabla de Test de Concordancia
+
+```{r}
+kable(r_electre$TConcordancia$MIndices, 
+      digits = 2, 
+      caption = "ELECTRE: Tabla de Test de Concordancia")
+```
+
+### Tabla de Test de Discordancia
+
+```{r}
+kable(r_electre$TDiscordancia$MIndices, 
+      digits = 2, 
+      caption = "ELECTRE: Tabla de Test de Discordancia")
+```
+
+### Tabla de Relación de Superación
+
+```{r}
+kable(r_electre$TSuperacion$MIndices, 
+      digits = 2, 
+      caption = "ELECTRE: Tabla de Relación de Superación")
+```
+
+## 2.1. Conclusiones método ELECTRE
+
+Núcleo Aproximado: El núcleo del problema contiene una sola ciudad, Tokio.
+
+Grafo de Superación: El grafo ilustra esto perfectamente. Se observa una flecha que sale de "Tok" (Tokio) hacia todas las demás ciudades (LsÁ, Prs, Mdr, Rom) y ninguna flecha entra en "Tok".
+
+### Interpretación
+
+Bajo los parámetros definidos (un nivel de concordancia del 70% y un umbral de discordancia de 500 para el Coste ), Tokio es la única alternativa no dominada. Domina a todas las demás opciones, convirtiéndose en la elección clara y robusta según este método.
+
+\newpage
+
+# 3. Método PROMETHEE
+
+```{r}
+# Usamos los pesos obtenidos en el método AHP
+W_promethee = p_criterios 
+W_promethee
+```
+
+```{r}
+# Usaremos Tipo 5 para todos.
+tab.fpref = matrix(
+  c(5, 3, 15, 0,
+    5, 100, 400, 0,
+    5, 5, 20, 0,
+    5, 4, 15, 0),
+  ncol = 4,
+  byrow = TRUE)
+colnames(tab.fpref) <- c("num.pref", "qi", "pi", "si")
+tab.fpref
+```
+
+## 3.1. Método PROMETHEE I (Preorden Parcial)
+
+```{r}
+sol_promethee_I = multicriterio.metodo.promethee_i(
+  tabdecs.X = matriz_decision,
+  pesos.criterios = W_promethee,
+  tab.fpref = tab.fpref)
+```
+
+### Phi+ (Flujo Entrante/Positivo)
+```{r}
+sol_promethee_I$vflujos.ent
+```
+
+### Phi- (Flujo Saliente/Negativo)
+
+```{r}
+sol_promethee_I$vflujos.sal
+```
+
+### Grafo de Superación PROMETHEE I
+
+```{r}
+require("qgraph")
+qgraph(sol_promethee_I$tablarelacionsupera)
+```
+
+## 3.2. Método PROMETHEE II (Orden completo)
+
+```{r}
+sol_promethee_II = multicriterio.metodo.promethee_ii(
+  tabdecs.X = matriz_decision,
+  pesos.criterios = W_promethee,
+  tab.fpref = tab.fpref)
+```
+
+### Flujo Neto (Phi): Phi+ - Phi-
+
+```{r}
+sol_promethee_II$vflujos.netos
+```
+
+### Ranking Final PROMETHEE II
+
+```{r}
+ranking_promethee_ii = sort(sol_promethee_II$vflujos.netos, decreasing = TRUE)
+tabla_ranking_promethee_ii <- data.frame(
+  Ciudad = names(ranking_promethee_ii),
+  `Flujo Neto (Phi)` = ranking_promethee_ii)
+kable(tabla_ranking_promethee_ii, digits = 4, 
+      caption = "Ranking Final PROMETHEE II")
+```
+
+## 3.3. Método PROMETHEE I (medias) 
+
+```{r}
+sol_promethee_I_med = multicriterio.metodo.promethee_i_med(
+  tabdecs.X = matriz_decision,
+  pesos.criterios = W_promethee,
+  tab.fpref = tab.fpref)
+```
+
+### Phi+ (Flujo Entrante/Positivo)
+```{r}
+sol_promethee_I_med$vflujos.ent
+```
+
+### Phi- (Flujo Saliente/Negativo)
+```{r}
+sol_promethee_I_med$vflujos.sal
+```
+
+### Grafo de Superación PROMETHEE I (medias)
+
+```{r}
+require("qgraph")
+qgraph(sol_promethee_I_med$tablarelacionsupera)
+```
+
+## 3.4. Método PROMETHEE II (medias) 
+
+```{r}
+sol_promethee_II_med = multicriterio.metodo.promethee_ii_med(
+  tabdecs.X = matriz_decision,
+  pesos.criterios = W_promethee,
+  tab.fpref = tab.fpref)
+```
+
+### Flujo Neto (Phi): Phi+ - Phi- (medias)
+
+```{r}
+sol_promethee_II_med$vflujos.netos
+```
+
+### Ranking Final PROMETHEE II (medias)
+
+```{r}
+ranking_promethee_ii_med = sort(sol_promethee_II_med$vflujos.netos, decreasing = TRUE)
+tabla_ranking_promethee_ii_med = data.frame(
+  Ciudad = names(ranking_promethee_ii_med),
+  `Flujo Neto (Phi)` = ranking_promethee_ii_med)
+kable(tabla_ranking_promethee_ii_med, digits = 4, 
+      caption = "Ranking Final PROMETHEE II (medias)")
+```
+
+## 3.5. PROMETHEE WINDOWS
+
+### Aplicar el método Promethee Windows
+
+```{r}
+res_windows = multicriterio.metodo.promethee_windows(
+  matdecision = matriz_decision,
+  tab.fpref = tab.fpref,
+  pesos.criterios = W_promethee,
+  fminmax = c("max", "min", "max", "max"))
+res_windows_kable = multicriterio.metodo.promethee_windows_kableExtra(res_windows)
+```
+
+### Tabla de Escenario
+
+```{r}
+res_windows_kable$tabEscenario
+```
+
+### Tabla de Acciones (Ranking)
+
+```{r}
+res_windows_kable$tabAcciones
+```
+
+## 3.6. Conclusiones método PROMETHEE
+
+### PROMETHEE I (Preorden Parcial)
+
+Flujo Positivo (Phi+): Tokio (3.03) tiene el valor más alto, seguido de Los Ángeles (1.63).
+
+Flujo Negativo (Phi-):  Tokio (0.00) tiene el valor más bajo (lo que es óptimo), seguido de Los Ángeles (0.35).
+
+Interpretación: Tokio es la alternativa que más domina a las demás (mayor Phi+) y la que menos es dominada por otras (menor Phi-).
+
+### PROMETHEE II (Orden Completo)
+
+Este método proporciona un ranking completo calculando el flujo neto (Phi+ menos Phi-).
+
+- Tokio: 3.0314
+- Los Ángeles: 1.2758
+- París: -0.1515
+- Madrid: -1.5557
+- Roma: -2.6001
+
+Interpretación: El método PROMETHEE II identifica a Tokio como la ganadora de forma decisiva, con una puntuación de flujo neto muy superior a la segunda, Los Ángeles. Las tres ciudades europeas (París, Madrid y Roma) obtienen flujos netos negativos, indicando que, en conjunto, son más dominadas de lo que dominan.
+
+Los análisis PROMETHEE II (medias) y PROMETHEE WINDOWS confirman exactamente el mismo ranking, lo que demuestra la alta estabilidad de esta solución.
+
+\newpage
+
+# 4. Método AXIOMÁTICO DE ARROW y RAYMOND
+
+```{r}
+sol_arrow_raymond = multicriterio.metodoaxiomatico.ArrowRaymond(matriz_decision)
+sol_arrow_raymond
+```
+
+## Ranking Final
+
+```{r}
+sol_arrow_raymond$alternativasordenadas
+```
+
+## 4.1. Conclusiones método ARROW Y RAYMOND
+
+### Ranking Final (Arrow-Raymond)
+El proceso de eliminación es el siguiente:
+
+- Se elimina Roma.
+- Se elimina Madrid.
+- Se elimina París.
+- Se elimina Los Ángeles.
+- La alternativa ganadora es Tokio.
+
+El ranking final ordenado es:
+
+1. Tokio
+2. Los Ángeles
+3. París
+4. Madrid
+5. Roma 
+
+Interpretación: Este método genera un orden completo que coincide perfectamente con el ranking obtenido por PROMETHEE II.
+
+# 5. Conclusión General
+
+Al analizar los cuatro métodos, observamos una convergencia muy fuerte en los resultados, aunque con una notable excepción:
+
+- AHP: Elige a Los Ángeles (29.4%) por un margen mínimo sobre Tokio (29.0%).
+- ELECTRE I: Elige a Tokio como única alternativa no dominada.
+- PROMETHEE II: Elige a Tokio como ganadora clara, seguida de Los Ángeles.
+- Arrow-Raymond: Elige a Tokio como ganadora, con un ranking idéntico a PROMETHEE II.
+
+Tres de los cuatro métodos identifican a Tokio como la sede superior, en el método AHP la diferencia entre Los Ángeles y Tokio es mínima. Por tanto, le recomendaríamos al Comité Olímpico Internacional que los próximos juegos olímpicos los realizase en Tokio.
