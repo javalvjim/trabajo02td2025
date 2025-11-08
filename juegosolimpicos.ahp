@@ -1,0 +1,112 @@
+Version: 2.0
+Alternatives: &alternatives
+  Madrid:
+  París:
+  Tokio:
+  Los Ángeles:
+  Roma:
+Goal:
+  name: Elegir Sede JJOO
+  preferences:
+    pairwise:
+      - [Infraestructura, Coste, 3]
+      - [Infraestructura, Seguridad, 2]
+      - [Infraestructura, Transporte, 2]
+      - [Coste, Seguridad, 1/2]
+      - [Coste, Transporte, 1/2]
+      - [Seguridad, Transporte, 1]
+  children:
+    Infraestructura:
+      preferences:
+        pairwise:
+          - [Instalaciones deportivas, Capacidad hotelera, 3]
+      children:
+        Instalaciones deportivas:
+          preferences:
+            pairwise:
+              - [Madrid, París, 1/2]
+              - [Madrid, Tokio, 1/3]
+              - [Madrid, Los Ángeles, 1/4]
+              - [Madrid, Roma, 2]
+              - [París, Tokio, 1/2]
+              - [París, Los Ángeles, 1/3]
+              - [París, Roma, 3]
+              - [Tokio, Los Ángeles, 1/2]
+              - [Tokio, Roma, 4]
+              - [Los Ángeles, Roma, 5]
+          children: *alternatives
+        Capacidad hotelera:
+          preferences:
+            pairwise:
+              - [Madrid, París, 1/2]
+              - [Madrid, Tokio, 1/3]
+              - [Madrid, Los Ángeles, 1/2]
+              - [Madrid, Roma, 2]
+              - [París, Tokio, 1/2]
+              - [París, Los Ángeles, 1]
+              - [París, Roma, 3]
+              - [Tokio, Los Ángeles, 2]
+              - [Tokio, Roma, 4]
+              - [Los Ángeles, Roma, 3]
+          children: *alternatives
+    Coste:
+      preferences:
+        pairwise:
+          - [Madrid, París, 2]
+          - [Madrid, Tokio, 3]
+          - [Madrid, Los Ángeles, 2]
+          - [Madrid, Roma, 1]
+          - [París, Tokio, 2]
+          - [París, Los Ángeles, 1]
+          - [París, Roma, 1/2]
+          - [Tokio, Los Ángeles, 1/2]
+          - [Tokio, Roma, 1/3]
+          - [Los Ángeles, Roma, 1/2]
+      children: *alternatives
+    Seguridad:
+      preferences:
+        pairwise:
+          - [Estabilidad política, Criminalidad, 2]
+      children:
+        Estabilidad política:
+          preferences:
+            pairwise:
+              - [Madrid, París, 1]
+              - [Madrid, Tokio, 1/2]
+              - [Madrid, Los Ángeles, 1/2]
+              - [Madrid, Roma, 2]
+              - [París, Tokio, 1/2]
+              - [París, Los Ángeles, 1/2]
+              - [París, Roma, 2]
+              - [Tokio, Los Ángeles, 1/2]
+              - [Tokio, Roma, 3]
+              - [Los Ángeles, Roma, 3]
+          children: *alternatives
+        Criminalidad:
+          preferences:
+            pairwise:
+              - [Madrid, París, 2]
+              - [Madrid, Tokio, 1/3]
+              - [Madrid, Los Ángeles, 1/2]
+              - [Madrid, Roma, 2]
+              - [París, Tokio, 1/4]
+              - [París, Los Ángeles, 1/3]
+              - [París, Roma, 1]
+              - [Tokio, Los Ángeles, 2]
+              - [Tokio, Roma, 5]
+              - [Los Ángeles, Roma, 3]
+          children: *alternatives
+    Transporte:
+      preferences:
+        pairwise:
+          - [Madrid, París, 1/2]
+          - [Madrid, Tokio, 1/3]
+          - [Madrid, Los Ángeles, 1/2]
+          - [Madrid, Roma, 2]
+          - [París, Tokio, 1/2]
+          - [París, Los Ángeles, 1]
+          - [París, Roma, 3]
+          - [Tokio, Los Ángeles, 2]
+          - [Tokio, Roma, 4]
+          - [Los Ángeles, Roma, 3]
+      children: *alternatives
